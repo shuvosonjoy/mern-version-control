@@ -9,3 +9,11 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
+
+
+
+@layer components{
+    .bg-glass{
+        @apply  bg-green-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0 border border-gray-100;
+    }
+}

@@ -12,9 +12,7 @@ const Sidebar = () => {
   return (
     <aside
       className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r  
-        
-     h-full w-full bg-green-700 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0 border border-gray-100
-        "
+      h-full w-full bg-glass "
     >
       <nav className="h-full flex flex-col gap-3">
         <Link to="/" className="flex justify-center">
@@ -65,9 +63,11 @@ const Sidebar = () => {
           </Link>
         )}
 
-        {authUser && <div className="flex flex-col gap-2 mt-auto">
-            <Logout/>
-            </div>}
+        {authUser && (
+          <div className="flex flex-col gap-2 mt-auto">
+            <Logout />
+          </div>
+        )}
       </nav>
     </aside>
   );
