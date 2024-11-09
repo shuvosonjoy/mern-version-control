@@ -11,7 +11,7 @@ const Sidebar = () => {
   const authUser = true;
   return (
     <aside
-      className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r  
+      className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto 
       h-full w-full bg-glass "
     >
       <nav className="h-full flex flex-col gap-3">
