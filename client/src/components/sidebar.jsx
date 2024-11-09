@@ -5,7 +5,7 @@ import { MdOutlineExplore } from "react-icons/md";
 import { PiSignInBold } from "react-icons/pi";
 import { MdEditDocument } from "react-icons/md";
 
-import Logout from "./logout";
+import Logout from "../pages/logout";
 
 const Sidebar = () => {
   const authUser = true;
@@ -22,7 +22,7 @@ const Sidebar = () => {
         <Link
           to="/"
           className="p-1.5 flex justify-center transition-colors duration-200 rounded-lg 
-					hover:bg-gray-800"
+					hover:bg-[#126323]"
         >
           <IoHomeSharp size={20} />
         </Link>
@@ -30,7 +30,7 @@ const Sidebar = () => {
         {authUser && (
           <Link
             to="/likes"
-            className="p-1.5 flex justify-center transition-colors duration-200 rounded-lg hover:bg-gray-800"
+            className="p-1.5 flex justify-center transition-colors duration-200 rounded-lg hover:bg-[#126323]"
           >
             <FaHeart size={22} />
           </Link>
@@ -39,7 +39,7 @@ const Sidebar = () => {
         {authUser && (
           <Link
             to="/explore"
-            className="p-1.5  flex justify-center transition-colors duration-200 rounded-lg hover:bg-gray-800"
+            className="p-1.5  flex justify-center transition-colors duration-200 rounded-lg hover:bg-[#126323]"
           >
             <MdOutlineExplore size={25} />
           </Link>

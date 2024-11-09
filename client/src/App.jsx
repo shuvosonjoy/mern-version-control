@@ -2,11 +2,12 @@
 
 
 import { Routes, Route } from 'react-router-dom';
-import  LoginPage  from './component/login';
-import HomePage from './component/home-page.jsx';
-import SignUpPage from './component/signUp-page';
+import  LoginPage  from './pages/login.jsx';
+import HomePage from './pages/home-page.jsx';
+import SignUpPage from './pages/signUp-page.jsx';
+import LikesPage from './pages/likes-page.jsx';
 
-import  Sidebar  from './component/sidebar';
+import  Sidebar  from './components/sidebar.jsx';
 
 
 
@@ -22,7 +23,7 @@ function App() {
 					<Route path='/login' element={<LoginPage />} />
 					<Route path='/signup' element={<SignUpPage />} />
 					{/* <Route path='/explore' element={<ExplorePage />} /> */}
-					{/* <Route path='/likes' element={<LikesPage />} /> */}
+					<Route path='/likes' element={<LikesPage />} />
 				</Routes>
 			</div>
 		</div>
