@@ -14,10 +14,10 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const [sortType, setSortType] = useState("recent");
 
-  const getUserProfilAndRepos = useCallback(async () => {
+  const getUserProfilAndRepos = useCallback(async (username="shuvosonjoy") => {
     try {
       setLoading(true);
-      const res = await fetch("https://api.github.com/users/shuvosonjoy");
+      const res = await fetch(`https://api.github.com/users/${username}`);
       const user = await res.json();
       setUserProfile(user);
 
@@ -28,6 +28,8 @@ const HomePage = () => {
       console.log("userProfile: ", user);
       console.log("repos: ", reposData);
 	  console.log(repos.length);
+	  return {userProfile,repos};
+
     } catch (e) {
       toast.error(e.message);
     } finally {
@@ -35,18 +37,35 @@ const HomePage = () => {
     }
   }, []);
 
+
+
+  const onSearch=async(e,username)=>{
+	console.log(username);
+	e.preventDefault();
+	setLoading(true);
+	setUserProfile(null);
+	setRepos([]);
+	const {userProfile,repos}= await getUserProfilAndRepos(username);
+	// setUserProfile(userProfile);
+	// setRepos(repos);
+	setLoading(false);
+	console.log("from function: ",userProfile,repos);
+	
+
+  }
+
   useEffect(() => {
     getUserProfilAndRepos();
   }, [getUserProfilAndRepos]);
   return (
     <div className="m-4">
-      <Search />
+      <Search onSearch={onSearch}/>
       <SortRepos />
 
       <div className="flex gap-4 flex-col lg:flex-row justify-center items-start">
         {userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
 	
-        {repos.length > 0 && !loading && <Repos repos={repos} />}
+        {!loading && <Repos repos={repos} />}
         {loading && <Spinner />}
       </div>
     </div>
