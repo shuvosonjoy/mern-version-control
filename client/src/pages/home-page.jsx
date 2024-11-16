@@ -24,10 +24,10 @@ const HomePage = () => {
         //   },
         // }
 	);
-  console.log(res); 
+  // console.log(res); 
         const { userProfile, repos } = await res.json();
-        console.log(userProfile);
-        console.log(repos);
+        // console.log(userProfile);
+        // console.log(repos);
 
         setUserProfile(userProfile);
 
@@ -45,16 +45,16 @@ const HomePage = () => {
   );
 
   const onSearch = async (e, username) => {
-    console.log(username);
+    // console.log(username);
     e.preventDefault();
     setLoading(true);
     setUserProfile(null);
     setRepos([]);
     const { userProfile, repos } = await getUserProfilAndRepos(username);
-    // setUserProfile(userProfile);
-    // setRepos(repos);
+    setUserProfile(userProfile);
+    setRepos(repos);
     setLoading(false);
-    console.log("from function: ", userProfile, repos);
+    // console.log("from function: ", userProfile, repos);
   };
 
   const onSort = async (sortType) => {

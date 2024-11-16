@@ -9,11 +9,18 @@ import LikesPage from './pages/likes-page.jsx';
 
 import  Sidebar  from './components/sidebar.jsx';
 
+
+
 import {Toaster} from 'react-hot-toast';
 
 
+import { useAuthContext } from "./context/authContext";
 
 function App() {
+	const { authUser, loading } = useAuthContext();
+	console.log("Authenticated user:", authUser);
+
+	if (loading) return null;
 
 	return (
 		<div className='flex text-white'>

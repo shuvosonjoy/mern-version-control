@@ -5,7 +5,7 @@ export const userProfile = async (req, res) => {
     const github_token = process.env.GITHUB_API_TOKEN;
 
     const username = req.params.username;
-    console.log(username);
+    // console.log(username);
   try {
 
 
@@ -17,8 +17,8 @@ export const userProfile = async (req, res) => {
         }
 	);
         const user = await result.json();
-        console.log(user);
-        console.log(github_token);
+        // console.log(user);
+        // console.log(github_token);
         const reposRes = await fetch(user.repos_url);
         const reposData = await reposRes.json();
 
