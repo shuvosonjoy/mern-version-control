@@ -16,7 +16,12 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    
+
+    "server": "nodemon server/server.js",
+    "start": "node server/server.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
+
   },
   "type": "module",
   "keywords": [],

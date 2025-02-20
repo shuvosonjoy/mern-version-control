@@ -7,6 +7,8 @@ import router from './routes/api.js';
 import passport from 'passport';
 import connectDB from './database/db.js';
 import  "./passport/github.auth.js";
+import path from 'path';
+
 
 import session from 'express-session';
 
@@ -16,16 +18,28 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 // persistent login sessions (recommended).
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
+app.use(
+    cors({
+      origin: "http://localhost:3000", // Allow only your frontend
+      credentials: true, // Allow credentials (cookies, authorization headers)
+    })
+  );
 
 
 
+  const __dirname = path.resolve();
 
+
+  app.use(express.static(path.join(__dirname, "/client/dist"))); 
+  app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "client","dist", "index.html"));
+    });
+  
  
 app.use('/',router);
 
 app.listen(4000, () => {
-    console.log('Server started');
+    console.log('Server started at port 4000');
     connectDB();
 }); 
 
